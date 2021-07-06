@@ -41,16 +41,16 @@ Run aws sts get-caller-identity and validate that your ARN contains `ChaosEngine
 
 ## Create an EKS cluster
 
-Create an eksctl deployment file (eksworkshop.yaml) use in creating your cluster using the following syntax:
+Create an eksctl deployment file (fisworkshop.yaml) use in creating your cluster using the following syntax:
 
 ```sh
-cat << EOF > eksworkshop.yaml
+cat << EOF > fisworkshop.yaml
 ---
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: eksworkshop-eksctl
+  name: fisworkshop-eksctl
   region: ${AWS_REGION}
   version: "1.19"
 
@@ -75,7 +75,7 @@ EOF
 
 Next, use the file you created as the input for the eksctl cluster creation.
 ```sh
-eksctl create cluster -f eksworkshop.yaml
+eksctl create cluster -f fisworkshop.yaml
 ```
 
 {{% notice info %}}
@@ -91,7 +91,7 @@ kubectl get nodes # if we see our 3 nodes, we know we have authenticated correct
 
 Export the worker role name for use throughout the workshop:
 ```sh
-STACK_NAME=$(eksctl get nodegroup --cluster eksworkshop-eksctl -o json | jq -r '.[].StackName')
+STACK_NAME=$(eksctl get nodegroup --cluster fisworkshop-eksctl -o json | jq -r '.[].StackName')
 ROLE_NAME=$(aws cloudformation describe-stack-resources --stack-name $STACK_NAME | jq -r '.StackResources[] | select(.ResourceType=="AWS::IAM::Role") | .PhysicalResourceId')
 echo "export ROLE_NAME=${ROLE_NAME}" | tee -a ~/.bash_profile
 ```
