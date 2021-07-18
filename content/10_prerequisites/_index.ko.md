@@ -7,7 +7,7 @@ weight: 15
 # 실습 환경 구성
 
 준비과정을 마치면 실습을 위해 간단하게 구현된 아래의 데모 애플리케이션이 배포됩니다.
-![image](./images/architecture.png)
+![image](/images/architecture.png)
 
 데모 애플리케이션은 크게 4가지의 마이크로서비스로 구성되어 있으며, product, review, recommendation은 각자의 독립적인 서비스입니다.
 
@@ -17,7 +17,7 @@ weight: 15
 데모를 좀 더 사실적으로 보여주기 위해 load-generator에서 일정한 트래픽을 마이크로서비스 환경으로 발생하도록 구성되었습니다.
 또한 각 서비스의 메트릭과 트레이스 정보는 Amazon CloudWatch 및 AWS X-Ray를 통하여 수집됩니다.
 
-{{% notice warning %}}
+{{% notice info %}}
 해당 마이크로서비스는 데모용으로 제작되어, 실제 프로덕션 환경에 적합하지 않습니다.
 마이크로서비스 기반 클라우드 네이티브 애플리케이션을 설계하기 시작한 경우 AWS에 문의를 주시면 충분한 도움을 드릴 것입니다.
 {{% /notice %}}

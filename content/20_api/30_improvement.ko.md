@@ -10,11 +10,11 @@ product-composite 서비스는 product, review, recommendation 서비스를 Sync
 
 `~/environment/chaos-fis-workshop/product-composite/src/main/java/com/skipio/demo/chaos/fis/composite/product/AppConfig.java`
 
-![image](./images/improvement_01.png)
+![image](/images/20_api/improvement_01.png)
 
 `~/environment/chaos-fis-workshop/product-composite/src/main/java/com/skipio/demo/chaos/fis/composite/product/RecommendationService.java`
 
-![image](./images/improvement_02.png)
+![image](/images/20_api/improvement_02.png)
 
 따라서 연계된 하나의 서비스만 지연되더라도 연쇄적으로 응답에 지연이 발생하고, 이는 product-composite의 가용 스레드를 소모하여 전체시스템에 영향을 주게 되었습니다. 한 서비스의 장애가 전체 서비스의 장애로 전파된 것입니다.
 
@@ -32,7 +32,7 @@ CircuitBreaker 어노테이션과 fallback 함수가 설정된 것을 볼 수 �
 
 `~/environment/chaos-fis-workshop/product-composite/src/main/java/com/skipio/demo/chaos/fis/composite/product/RecommendationService.java`
 
-![image](./images/improvement_03.png)
+![image](/images/20_api/improvement_03.png)
 
 **Cloud9에서 아래의 명령어를 실행하여 코드를 재배포 합니다.**  배포가 완료되기까지 대략 2,3분 정도 기다립니다.
 
@@ -44,7 +44,7 @@ cd ~/environment/chaos-fis-workshop
 
 배포가 완료되면 **원인파악 및 개선사항 도출**로 돌아가서 다시 실험을 진행합니다. recommendation 서비스에 지속적인 지연이 발생하면, 서킷이 열리고 폴백 응답을 주어 지속적인 지연이 발생하지 않습니다.
 
-![image](./images/improvement_04.png)
+![image](/images/20_api/improvement_04.png)
 
 공격중에 Cloud9에서 아래의 명령어를 실행하여 현재의 발생하는 응답의 상세내용을 확인합니다. recommendations의 상세내역을 보면 정상적인 응답이 아니라 fallback에 설정한 응답이 나오는 것을 볼 수 있습니다.
 
@@ -53,11 +53,11 @@ cd ~/environment/chaos-fis-workshop
 ./chaos-05-check-response-product-composite.sh
 ```
 
-![image](./images/improvement_05.png)
+![image](/images/20_api/improvement_05.png)
 
 실험이 끝나면 서킷이 다시 닫히고 정상적으로 recommendations의 응답이 출력되는 것을 확인할 수 있습니다.
-![image](./images/improvement_06.png)
-![image](./images/improvement_07.png)
+![image](/images/20_api/improvement_06.png)
+![image](/images/20_api/improvement_07.png)
 
 ---
 
