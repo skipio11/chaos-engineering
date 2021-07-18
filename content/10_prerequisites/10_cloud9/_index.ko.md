@@ -1,11 +1,11 @@
 ---
-title: "모듈 7: 서버리스"
-weight: 60
+title: "Cloud9 환경구성"
+weight: 10
 chapter: true
 draft: false
 ---
 
-# 서버리스
+# Cloud9 환경구성
 
 {{% children showhidden="true" %}}
 

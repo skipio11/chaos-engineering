@@ -1,7 +1,7 @@
 ---
 title: "모듈 2: 실습 환경 구성"
 chapter: true
-weight: 15
+weight: 20
 ---
 
 # 실습 환경 구성

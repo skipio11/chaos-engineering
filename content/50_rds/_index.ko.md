@@ -1,11 +1,11 @@
 ---
-title: "모듈 7: 서버리스"
-weight: 60
+title: "모듈 6: RDS"
+weight: 50
 chapter: true
 draft: false
 ---
 
-# 서버리스
+# RDS
 
 {{% children showhidden="true" %}}
 

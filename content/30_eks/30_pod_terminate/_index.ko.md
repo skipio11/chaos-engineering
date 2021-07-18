@@ -1,11 +1,11 @@
 ---
-title: "모듈 7: 서버리스"
-weight: 60
+title: "EKS 포드(Pod) 종료"
+weight: 30
 chapter: true
 draft: false
 ---
 
-# 서버리스
+# EKS 포드(Pod) 종료
 
 {{% children showhidden="true" %}}
 
