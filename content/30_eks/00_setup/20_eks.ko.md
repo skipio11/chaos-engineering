@@ -19,13 +19,13 @@ weight: 20
 다음, 클러스터를 생성하기 위한 스크립트를 내려받기 합니다. 이 예제에서는 AWS CDK를 사용할 것입니다.
 ```sh
 git clone https://github.com/dns-msa/fisworkshop.git
-cd environments/fisworkshop/eks/cdk
 ```
 
 ## EKS 클러스터 만들기
 
 내려받은 파일을 이용하여 EKS 클러스터를 생성합니다:
 ```sh
+cd ~/environments/fisworkshop/eks/cdk
 bash deploy.sh
 ```
 
