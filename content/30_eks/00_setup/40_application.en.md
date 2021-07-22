@@ -7,7 +7,7 @@ weight: 40
 ## Update kubeconfig
 
 In order to interact with your cluster through kubectl, you can use the aws eks update-kubeconfig AWS CLI command to configure your local kubeconfig. The EKS module will define a CloudFormation output in your stack which contains the command to run. For example:
-```sh
+```
 Outputs:
 ClusterConfigCommand43AAE40F = aws eks update-kubeconfig --name cluster-xxxxx --role-arn arn:aws:iam::112233445566:role/yyyyy
 ```

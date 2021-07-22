@@ -7,7 +7,7 @@ weight: 40
 ## kubeconfig 저장
 
 쿠버네티스 클러스터를 kubectl로 관리하기 위해서는 aws eks update-kubeconfig 명령을 실행해야 합니다. 이 명령은 실습 환경에 kubeconfig 설정 파일을 저장합니다:
-```sh
+```
 Outputs:
 ClusterConfigCommand43AAE40F = aws eks update-kubeconfig --name cluster-xxxxx --role-arn arn:aws:iam::112233445566:role/yyyyy
 ```
