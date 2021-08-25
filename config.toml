@@ -54,6 +54,11 @@ name = "<i class='fas fa-tools'></i> AWS 빌더스 라이브러리"
 url = "https://aws.amazon.com/builders-library/"
 weight = 11
 
+[[languages.ko.menu.shortcuts]]
+name = "<i class='fas fa-laptop-code'></i> Gremlin을 활용한 카오스 엔지니어링"
+url = "https://master.dglxrf2tjtfn.amplifyapp.com/"
+weight = 12
+
 [languages.en]
 languageName = "English"
 languageCode = "en-us"
@@ -64,6 +69,11 @@ weight = 2
 name = "<i class='fas fa-tools'></i> AWS Builders Library"
 url = "https://aws.amazon.com/builders-library/"
 weight = 11
+
+[[languages.en.menu.shortcuts]]
+name = "<i class='fas fa-laptop-code'></i> Chaos Engineering with Gremlin"
+url = "https://gremlin.awsworkshop.io/"
+weight = 12
 
 [markup]
   defaultMarkdownHandler = "blackfriday"
