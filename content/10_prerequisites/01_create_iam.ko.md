@@ -1,5 +1,5 @@
 ---
-title: "1. IAM 역할 생성"
+title: "1. IAM Role 생성"
 chapter: false
 weight: 11
 ---
