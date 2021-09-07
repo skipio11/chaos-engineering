@@ -1,5 +1,5 @@
 ---
-title: "1. IAM Role 생성"
+title: "1. IAM 역할 생성"
 chapter: false
 weight: 11
 ---
@@ -20,7 +20,7 @@ Create Role 페이지의 **Attach permissions policies**에서 아래와 같이 
 
 별도 변경없이 하단의 **Next:Review** 버튼을 클릭합니다.
 
-Create Role 페이지의 **Review**에서 **Role name**을 `ChaosEngineeringWorkshop-Admin` 로 입력하고 **Create role** 버튼을 클릭하여 Role을 생성합니다.
+Create Role 페이지의 **Review**에서 **Role name**을 `fisworkshop-admin-role` 로 입력하고 **Create role** 버튼을 클릭하여 Role을 생성합니다.
 ![image](/images/10_prequisites/iam_05.png)
 
 정상적으로 Role의 생성이 완료되면 아래와 같은 메시지를 확인할 수 있습니다.
