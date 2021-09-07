@@ -1,7 +1,7 @@
 ---
-title: "1. Tools for Chaos Engineering"
+title: "4. Tools for Chaos Engineering"
 chapter: false
-weight: 21
+weight: 14
 ---
 
 ## AWS Fault Injection Simulator
