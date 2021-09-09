@@ -20,7 +20,6 @@ EC2의 초기화 과정에서 많은 시간이 소요되는 것을 개선하기 
 ![image](/images/20_ec2/experiment02_16.png)
 
 그리고 Activity 탭으로 넘어가면 새로운 인스턴스가 추가되는 과정을 확인할 수 있습니다.
-![image](/images/20_ec2/experiment02_17.png)
 
 Warm Pool에 인스턴스가 생성되기까지 대략 5분의 시간이 소요되었습니다.
 ![image](/images/20_ec2/experiment02_18.png)
