@@ -25,4 +25,9 @@ Activity 탭을 선택하고 하단의 Activity history를 확인합니다.
 
 인스턴스가 4개까지 확장되는데 대략 5분 정도가 소요된 것을 확인할 수 있습니다.
 
-TODO : Desired Capacity를 2로 다시 변경
+**이후 원활한 실습을 위해 Desired Capacity를 아래와 같이 다시 2로 변경합니다.**
+아래 Auto Scaling groups 설정에서 **Edit** 버튼을 클릭합니다.
+![image](/images/20_ec2/experiment02_12_1.png)
+
+팝업에서 **Desired capacity**값을 `2` 로 수정하고 **Update** 버튼을 클릭합니다.
+![image](/images/20_ec2/experiment02_12_2.png)

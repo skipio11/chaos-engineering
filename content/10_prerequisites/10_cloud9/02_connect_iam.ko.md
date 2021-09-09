@@ -48,7 +48,7 @@ AWS Cloud9 콘솔 우측 상단의 톱니바퀴 아이콘을 눌러서 Preferenc
 이제 EC2 콘솔로 이동하여 AWS Cloud9 인스턴스에 미리 만들어 두었던 IAM Role을 연결합니다. **Instances -> Actions -> Security -> Modify IAM role**
 ![image](/images/10_prequisites/cloud9_10.png)
 
-**fisworkshop-admin-role** 을 선택하고 저장합니다.
+**ChaosEngineeringWorkshop-Admin** 을 선택하고 저장합니다.
 ![image](/images/10_prequisites/cloud9_11.png)
 
 AWS Cloud9 에 ROLE이 연결된 것을 확인하기 위해 다시한번 `aws configure list` 명령을 사용하여 Credential 정보를 확인합니다. **Type**의 값이 **iam-role** 인 것을 확인할 수 있습니다.
