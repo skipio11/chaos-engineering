@@ -1,11 +1,11 @@
 ---
-title: "실습 환경 준비하기"
+title: "Prepare Workshop"
 weight: 1
 chapter: true
 draft: false
 ---
 
-# 실습 환경 준비하기
+# Prepare Workshop
 
 In this workshop, you will build the following architecture.
 ![image](/images/20_ec2/architecture.png)
