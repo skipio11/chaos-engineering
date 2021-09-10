@@ -32,3 +32,25 @@ kubectl apply -f kubernetes/manifest/sockshop-demo-ha.yaml
 ```
 
 ## 재실험을 통한 가설 검증
+
+AWS FIS 서비스 페이지로 돌아갑니다. 실험 템플릿 목록 중에서 `TerminateEKSNodes`을 선택합니다. 화면 오른 쪽 상단에 있는 **작업** 단추를 누르고 **실험 시작** 을 눌러서 실험을 재시작 합니다. AWS FIS는 EKS 노드를 다시 종료시킬 것입니다. EC2 서비스 페이지로 이동해 보면 종료 중인 EKS 노드들을 볼 수 있습니다. 그리고 EKS 노드가 종료된 다음에는 새 인스턴스가 생성되는 것을 볼 수 있습니다.
+
+```sh
+kubectl -n sockshop get node -w
+```
+```sh
+NAME                                            STATUS   ROLES    AGE     VERSION
+ip-10-1-1-183.ap-northeast-2.compute.internal    Ready    <none>   56m     v1.20.4-eks-6b7464
+ip-10-1-1-193.ap-northeast-2.compute.internal    Ready    <none>   4m12s   v1.20.4-eks-6b7464
+ip-10-1-17-157.ap-northeast-2.compute.internal   Ready    <none>   55m     v1.20.4-eks-6b7464
+ip-10-1-9-211.ap-northeast-2.compute.internal    Ready    <none>   11m     v1.20.4-eks-6b7464
+ip-10-1-21-107.ap-northeast-2.compute.internal   Ready    <none>   10m40s   v1.20.4-eks-6b7464
+ip-10-1-21-107.ap-northeast-2.compute.internal   NotReady   <none>   10m40s   v1.20.4-eks-6b7464
+ip-10-1-21-107.ap-northeast-2.compute.internal   NotReady   <none>   10m40s   v1.20.4-eks-6b7464
+```
+
+그러나 첫 번째 실험과 달리 응용 프로그램의 가용성이 높습니다. 어플리케이션 웹사이트로 돌아가서 정상적으로 동작하는 지 확인합니다. 몇 개의 EKS 노드가 종료되었더라도 전체 서비스는 계속 사용할 수 있을 것입니다.
+
+## 정리
+
+카오스 엔지니어링은 무작위적으로 시스템을 파괴하는 행위가 아닙니다. 여러 가지 실험을 통해 사전에 대비를 하고 우리가 가진 시스템의 한계를 찾아내고 이를 지속적으로 개선하는 과정입니다. 이를 통하여 장애가 발생하더라도 당황하지 않고 보다 체계적으로 대응할 수 있으며, 시스템을 지속적으로 자동화하여 효율적이고 안정적으로 운영할 수 있게 됩니다.

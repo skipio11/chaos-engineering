@@ -32,3 +32,25 @@ kubectl apply -f kubernetes/manifest/sockshop-demo-ha.yaml
 ```
 
 ## Rerun Experiment
+
+Back to the AWS FIS service page and select `TerminateEKSNodes` and start the experiment using **Actions** button. AWS FIS shuts down EKS nodes again. On the EC2 service page, you will see the instances being terminated. And you can see that new instances are created right after the EKS nodes are shut down.
+
+```sh
+kubectl -n sockshop get node -w
+```
+```sh
+NAME                                            STATUS   ROLES    AGE     VERSION
+ip-10-1-1-183.ap-northeast-2.compute.internal    Ready    <none>   56m     v1.20.4-eks-6b7464
+ip-10-1-1-193.ap-northeast-2.compute.internal    Ready    <none>   4m12s   v1.20.4-eks-6b7464
+ip-10-1-17-157.ap-northeast-2.compute.internal   Ready    <none>   55m     v1.20.4-eks-6b7464
+ip-10-1-9-211.ap-northeast-2.compute.internal    Ready    <none>   11m     v1.20.4-eks-6b7464
+ip-10-1-21-107.ap-northeast-2.compute.internal   Ready    <none>   10m40s   v1.20.4-eks-6b7464
+ip-10-1-21-107.ap-northeast-2.compute.internal   NotReady   <none>   10m40s   v1.20.4-eks-6b7464
+ip-10-1-21-107.ap-northeast-2.compute.internal   NotReady   <none>   10m40s   v1.20.4-eks-6b7464
+```
+
+However, your application is highly available, unlike the first experiment. Back to the application front-end website running on your EKS cluster. And check the application is working even though some EKS nodes are shut down.
+
+## Conclustion
+
+Chaos engineering is NOT about breaking thingsrandomly without a purpose, chaos engineering isabout breaking things in a controlled environment andthrough well-planned experiments in order to build confidence in your application to withstand turbulent conditions.

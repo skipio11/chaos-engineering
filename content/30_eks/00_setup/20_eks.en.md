@@ -26,7 +26,7 @@ git clone https://github.com/dns-msa/fisworkshop.git
 
 Run the deploy deploy to create an EKS cluster:
 ```sh
-cd ~/environments/fisworkshop/eks/cdk
+cd ~/environment/fisworkshop/eks/cdk
 bash deploy.sh
 ```
 

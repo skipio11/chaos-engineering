@@ -25,7 +25,7 @@ git clone https://github.com/dns-msa/fisworkshop.git
 
 내려받은 파일을 이용하여 EKS 클러스터를 생성합니다:
 ```sh
-cd ~/environments/fisworkshop/eks/cdk
+cd ~/environment/fisworkshop/eks/cdk
 bash deploy.sh
 ```
 
