@@ -1,19 +1,11 @@
 ---
-<<<<<<< HEAD
-title: "Prepare Workshop"
-=======
 title: "실습 환경 준비하기"
->>>>>>> d47adfe12062902a9906a537ba39a8738ce5439a
 weight: 1
 chapter: true
 draft: false
 ---
 
-<<<<<<< HEAD
-# Prepare Workshop
-=======
 # 실습 환경 준비하기
->>>>>>> d47adfe12062902a9906a537ba39a8738ce5439a
 
 In this workshop, you will build the following architecture.
 ![image](/images/20_ec2/architecture.png)
