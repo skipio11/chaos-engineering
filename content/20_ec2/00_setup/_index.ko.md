@@ -1,11 +1,11 @@
 ---
-title: "실습 환경 준비하기"
+title: "실습 환경 준비"
 weight: 1
 chapter: true
 draft: false
 ---
 
-# 실습 환경 준비하기
+# 실습 환경 준비
 
 준비과정을 마치면 실습을 위해 간단하게 구현된 아래의 데모 애플리케이션이 배포됩니다.
 ![image](/images/20_ec2/architecture.png)
