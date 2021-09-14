@@ -5,7 +5,7 @@ chapter: false
 draft: false
 ---
 
-# AWS CLI
+## AWS CLI
 
 The AWS CLI allows you to interact with AWS services from a terminal session. Make sure you have the latest version of the AWS CLI installed on your system.
 

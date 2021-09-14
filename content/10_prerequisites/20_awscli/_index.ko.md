@@ -5,7 +5,7 @@ chapter: false
 draft: false
 ---
 
-# AWS CLI
+## AWS CLI
 
 AWS CLI는 여러 분이 AWS 서비스들과 터미널을 통하여 상호작용할 수 있도록 해줍니다. 가장 최신 버전의 AWS CLI를 여러 분의 실습 환경에 설치합니다.
 

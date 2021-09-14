@@ -5,7 +5,7 @@ chapter: false
 draft: false
 ---
 
-# NODE.JS
+## NODE.JS
 
 The AWS CDK uses Node.js (>= 10.13.0, except for versions 13.0.0 - 13.6.0). A version in active long-term support (14.x at this writing) is recommended.
 
@@ -23,18 +23,17 @@ The AWS CDK uses Node.js (>= 10.13.0, except for versions 13.0.0 - 13.6.0). A ve
     v10.3.0
     ```
 
-# AWS CDK
+## AWS CDK
 
 Next, we’ll install the AWS CDK Toolkit. The toolkit is a command-line utility which allows you to work with CDK apps.
 
 Open a terminal session and run the following command:
-
-* Windows: you’ll need to run this as an Administrator
-* POSIX: on some systems you may need to run this with `sudo`
-
 ```
 npm install -g aws-cdk
 ```
+
+* Windows: you’ll need to run this as an Administrator
+* POSIX: on some systems you may need to run this with `sudo`
 
 You can check the toolkit version:
 

@@ -15,8 +15,6 @@ Run aws sts get-caller-identity and validate that your ARN contains `ChaosEngine
 }
 ```
 
-## Launch EKS
-
 For this module, we need to download the scripts to create an EKS cluster from the repository. This module will use AWS CDK for infrastructure management.
 ```sh
 git clone https://github.com/dns-msa/fisworkshop.git
