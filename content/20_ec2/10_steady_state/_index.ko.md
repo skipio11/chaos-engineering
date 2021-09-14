@@ -12,26 +12,26 @@ draft: false
 
 따라서 데모 시스템의 정상상태는 아래의 2가지로 정의 합니다.
 
-* 상품정보조회 API 응답처리시간 - p90을 기준으로 1초 이내
-* 상품정보조회 API 응답 에러율 - 0.5 퍼센트 이내
+* **상품정보조회 API 응답처리시간 - p90을 기준으로 1초 이내**
+* **상품정보조회 API 응답 에러율 - 0.5 퍼센트 이내**
 
 ### CloudWatch에서 정상상태 확인하기
 
 먼저 AWS 콘솔에서 CloudWatch 메뉴로 이동합니다.
 ![image](/images/20_ec2/steady-state_01.png)
 
-화면에서 Recent alarms 내용에 있는 2가지 알람을 확인하고 `View recent alarms dashboard` 링크를 클릭합니다.
+화면에서 **Recent alarms** 내용에 있는 2가지 알람을 확인하고 **View recent alarms dashboard** 링크를 클릭합니다.
 ![image](/images/20_ec2/steady-state_02.png)
 
 아래의 화면에서 chaosTargetResponseAlaram의 우측 상단의 ... 으로 되어 있는 메뉴에서 `View in metrics` 과 `View in alarms` 링크를 클릭하여 내용을 살펴봅니다.
 ![image](/images/20_ec2/steady-state_03.png)
 
 
-상품정보조회 API를 제공하는 product-composite 서비스에 연결된 로드밸런서의 TargetResponseTime의 p90 메트릭을 기준으로 1초가 넘어가는 알람이 발생하도록 되어 있는 것을 알 수 있습니다.
+상품정보조회 API를 제공하는 product-composite 서비스에 연결된 로드밸런서의 TargetResponseTime의 p90 메트릭을 기준으로 1초가 넘어가면 알람이 발생하도록 되어 있는 것을 알 수 있습니다.
 ![image](/images/20_ec2/steady-state_05.png)
 ![image](/images/20_ec2/steady-state_04.png)
 
-다시 recent alarms dashboard 대시보드 화면으로 넘어와서 아래의 화면에서 chaosErrorRateAlarm의 우측 상단의 ... 으로 되어 있는 메뉴에서 `View in metrics` 과 `View in alarms` 링크를 클릭하여 내용을 살펴봅니다.
+다시 recent alarms dashboard 화면으로 넘어와서 아래의 화면에서 chaosErrorRateAlarm의 우측 상단의 ... 으로 되어 있는 메뉴에서 `View in metrics` 과 `View in alarms` 링크를 클릭하여 내용을 살펴봅니다.
 ![image](/images/20_ec2/steady-state_06.png)
 
 상품정보조회 API를 제공하는 product-composite 서비스에 연결된 로드밸런서의 HTTPCode_ELB_5XX_Count, HTTPCode_ELB_4XX_Count, RequestCount 메트릭을 기준으로 에러율을 계산하고 이를 통해 0.5퍼센트 이상의 에러가 발생하면 알람이 발생하도록 되어 있는 것을 알 수 있습니다.

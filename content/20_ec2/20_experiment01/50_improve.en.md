@@ -1,23 +1,23 @@
 ---
-title: "개선사항 적용 및 검증"
+title: "Improvement & Verification"
 chapter: false
 weight: 50
 ---
 
-### 개선사항 적용
+### Apply improvement
 
-단순히 좀 더 짧은 타임아웃을 주는 방법도 생각해 볼 수 있으나, 지연이 길어지고 요청량이 많아지면 결국 장애로 이어집니다.
+You can think of simply giving a shorter timeout, but if the delay continues and the request volume is high, it will eventually lead to failure.
 
-따라서 서킷브레이커 패턴을 적용하여 장애가 지속되면 서킷을 열고 폴백 응답을 보내는 방식으로 개선합니다. 이를 위해 여기에서는 [resilience4j](https://resilience4j.readme.io/docs)를 적용합니다.
+So we will apply the circuit breaker pattern. If the failure persists, it opens a circuit and sends a fallback response. For this, we will use [resilience4j](https://resilience4j.readme.io/docs) here.
 
-CircuitBreaker가 동작할 수 있도록 아래 코드에서 **@CircuitBreaker annotation에 있는 주석을 해제하고 저장합니다.**
+**Uncomment @CircuitBreaker annotation** in the code below and **save it** so that CircuitBreaker can work.
 
-파일위치
+File location
 ```bash
 ~/environment/fisworkshop/ec2/product-composite/src/main/java/com/skipio/demo/chaos/fis/composite/product/RecommendationService.java
 ```
 
-수정전
+Before change
 ```java
 // @CircuitBreaker(name = "recommendation", fallbackMethod = "fallback")
 public List<ProductComposite.Recommendation> getRecommendations(String productId){
@@ -26,7 +26,7 @@ public List<ProductComposite.Recommendation> getRecommendations(String productId
 }
 ```
 
-수정후
+After change
 ```java
 @CircuitBreaker(name = "recommendation", fallbackMethod = "fallback")
 public List<ProductComposite.Recommendation> getRecommendations(String productId){
@@ -35,7 +35,7 @@ public List<ProductComposite.Recommendation> getRecommendations(String productId
 }
 ```
 
-좀 더 코드를 살펴보면 CircuitBreaker 실패 시 처리되는 fallback 함수가 설정된 것을 볼 수 있습니다.
+If you look at the code a bit more, you can see that a fallback function is set up that handles when a failure occurs. 
 ```java
 public List<ProductComposite.Recommendation> fallback(Exception e){
     List<ProductComposite.Recommendation> recommendations = new ArrayList<>();
@@ -54,11 +54,11 @@ public List<ProductComposite.Recommendation> fallback(Exception e){
 }
 ```
 
-**Cloud9에서 아래의 명령어를 실행하여 코드를 재배포 합니다.**  배포가 완료되기까지 대략 5분 정도 기다립니다.
+**Run the following command in Cloud9 to redeploy the code.** Wait approximately 5 minutes for the deployment to complete. 
 
-샘플 어플리케이션에는 안정적인 CI/CD 프로세스가 적용되어 있지는 않습니다. 단순히 빌드된 코드를 가져와서 EC2에서 프로세스를 재기동합니다.
+The demo application does not have a reliable CI/CD process. Simply download the built code and restart the process on EC2.
 
-이에 따라 배포 도중 오류가 나타날 수 있습니다. 현재 워크샵의 범위에서 다루지는 않지만, 왜 안정적인 CI/CD 프로세스가 필요한지 생각해 볼 수 있는 부분입니다.
+As a result, some errors may appear during deployment. Although we will not cover this scope of the current workshop, you can understand why you need a reliable CI/CD process. 
 
 ```bash
 cd ~/environment/fisworkshop/ec2/
@@ -66,17 +66,17 @@ cd ~/environment/fisworkshop/ec2/
 
 ```
 
-### 실험 반복을 통한 개선사항 확인
-배포가 완료되면 **장애주입** 단계로 돌아가서 다시 실험을 진행합니다.
+### Check for improvement through experiment iteration
+When the deployment is complete, return to the **failure injection** step and start the experiment again.
 
-이제 recommendation 서비스에 지속적인 지연이 발생하면, 서킷이 열리고 폴백 응답을 주어 지속적인 지연이 발생하지 않습니다.
+Now, when the recommendation service encounters a delay, the circuit opens and gives a fallback response so that there is no continuous delay.
 
 ![image](/images/20_ec2/experiment01_12.png)
 ![image](/images/20_ec2/experiment01_13.png)
 
-**공격 중에 Cloud9에서 아래의 명령어를 실행하여 현재의 발생하는 응답의 상세내용을 확인합니다.**
+**During the attack, run the following command in Cloud9 to check the details of the current response.** 
 
-recommendations의 상세내역을 보면 정상적인 응답이 아니라 fallback에 설정한 응답이 나오는 것을 볼 수 있습니다.
+If you look at the details of recommendations, you can see that the response set in the fallback. 
 
 ```
 cd ~/environment/fisworkshop/ec2/
@@ -117,11 +117,10 @@ request to http://Chaos-produ-XMHKGLMY5Y8O-882044339.us-east-1.elb.amazonaws.com
 }
 ```
 
-
-이번에는 알람이 발생하지 않고, 실험이 정상적으로 종료되었습니다.
+There was no alarm aht this time, and the experiment ended normally. 
 ![image](/images/20_ec2/experiment01_14.png)
 
-실험이 끝나면 서킷이 다시 닫히고 다시 정상적으로 recommendations의 응답이 출력되는 것을 확인할 수 있습니다.
+When the experiment is over, the circuit closes again, and you can check that the recommendations are normally responded to. 
 ```
 cd ~/environment/fisworkshop/ec2/
 ./chaos-05-check-response-product-composite.sh
@@ -169,9 +168,9 @@ request to http://Chaos-produ-XMHKGLMY5Y8O-882044339.us-east-1.elb.amazonaws.com
 }
 ```
 
-### 포스트모텀 - 실패로부터 배우기
-장애나 지연이 지속될 때 문제가 있는 서비스로 계속 요청을 보내는 것은 장애의 해소를 지연시키고 오히려 확산시킬 수 있습니다. 따라서 이 때에는 [서킷브레이커 패턴](https://docs.aws.amazon.com/ko_kr/whitepapers/latest/modern-application-development-on-aws/circuit-breaker.html)을 적용하여 Fail Fast 전략을 가져가는 것이 사용자 경험을 높이고, 장애를 격리시킬 수 있는 방안입니다.
+### Postmortem - Learning from Failure 
+Continuing to send requests to the service with the failure can delay recovery from failures and, rather, propagate failures. Therefore, in this case, applying the [Circuit Breaker Pattern] (https://docs.aws.amazon.com/en_kr/whitepapers/latest/modern-application-development-on-aws/circuit-breaker.html) and adopting a Fail Fast strategy is a way to improve user experience and isolate failures. 
 
-실습에서 사용한 resilience4j는 Java언어에 한하여만 적용할 수 있다는 단점이 있습니다. AWS에서는 [AWS App Mesh](https://aws.amazon.com/ko/app-mesh/?aws-app-mesh-blogs.sort-by=item.additionalFields.createdDate&aws-app-mesh-blogs.sort-order=desc&whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc) 서비스를 이용하여 사용하는 언어에 관계없이 이러한 서킷 브레이커 패턴을 적용할 수 있고, 애플리케이션의 가시성을 가져갈 수 있습니다.
+The resilience4j used in this lab has the disadvantage that it can be applied only to the Java language. At AWS, you can apply the circuit breaker pattern regardless of the language with [AWS App Mesh](https://aws.amazon.com/ko/app-mesh/?aws-app-mesh-blogs.sort-by=item.additionalFields.createdDate&aws-app-mesh-blogs.sort-order=desc&whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc) and can get visibility of your application.
 
-또한 비즈니스에 따라 비동기 방식의 처리, 그리고 격벽패턴을 적용하는 것도 시스템을 안정적으로 운영할 수 있는 방법입니다.
+In addition, depending on the business, asynchronous processing or applying the bulkhead pattern are ways to operate the system stably.

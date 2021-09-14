@@ -6,7 +6,7 @@ weight: 20
 
 ### 공격대상 서비스 선택 및 장애주입
 
-실험을 위해 product-composite 서비스에서 사용하는 EC2 인스턴스 CPU 부하를 발생시킵니다.
+실험을 위해 product-composite 서비스에서 사용하는 EC2 인스턴스의 CPU에 부하를 발생시킵니다.
 
 먼저 AWS 콘솔에서 FIS Service로 이동하고 좌측 메뉴에서 **Experiment templates** 메뉴를 선택합니다. 미리 생성된 **CPU Attack Template**을 선택하고 Actions에서 **Start experiment** 메뉴를 클릭합니다.
 ![image](/images/20_ec2/experiment02_01.png)

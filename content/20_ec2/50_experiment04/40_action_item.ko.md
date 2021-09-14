@@ -17,10 +17,10 @@ loadGenerator를 제외한 나머지 인스턴스는 성능 순간 확장 가능
 
 성능 순간 확장 가능 인스턴스는 Credit 모드에 따라서 Unlimited와 Standard로 나뉘어집니다.
 
-Standard 모두의 경우 누적된 Credit이 없는 경우, 스로틀링에 걸리게 됩니다. 이러한 인스턴스가 없는지 확인해보겠습니다.
+Standard 모드의 경우 누적된 Credit이 없는 경우, 스로틀링에 걸리게 됩니다. 이러한 인스턴스가 없는지 확인해보겠습니다.
 
 
-그리고 아래와 같이 **ChaosProductCompositeStack/productCompositeAsg** EC2 인스턴스 하나를 클릭하고, 상세화면을 살펴보겠습니다.
+그러면 아래와 같이 **ChaosProductCompositeStack/productCompositeAsg** EC2 인스턴스 하나를 클릭하고, 상세화면을 살펴보겠습니다.
 ![image](/images/20_ec2/experiment04_06.png)
 
 상세화면의 하단을 살펴보면 **Credit specification** 이라는 부분이 보이고, 아래에 **unlimited**라고 표시되어 있습니다.
