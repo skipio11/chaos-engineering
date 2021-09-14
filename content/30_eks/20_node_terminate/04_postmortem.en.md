@@ -27,7 +27,7 @@ kubectl -n kube-system logs -f deployment/cluster-autoscaler
 
 Scale out pods for high availability.
 ```sh
-cd ~/environments/fisworkshop/eks/
+cd ~/environment/fisworkshop/eks/
 kubectl apply -f kubernetes/manifest/sockshop-demo-ha.yaml
 ```
 
