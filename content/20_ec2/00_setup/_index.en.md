@@ -1,11 +1,11 @@
 ---
-title: "Setup lab environment"
+title: "Prepare Workshop"
 weight: 1
 chapter: true
 draft: false
 ---
 
-# Setup lab environment
+# Prepare Workshop
 
 In this workshop, we will build the following architecture.
 ![image](/images/20_ec2/architecture.png)
