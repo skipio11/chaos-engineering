@@ -1,10 +1,11 @@
 ---
-title: "실습 환경 준비"
-weight: 01
+title: "Cloud9 Workspace"
+weight: 10
 chapter: true
 draft: false
 ---
 
-# 실습 환경 준비
+# Cloud9 Workspace
 
 {{% children showhidden="true" %}}
+

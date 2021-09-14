@@ -27,7 +27,7 @@ kubectl -n kube-system logs -f deployment/cluster-autoscaler
 
 고가용성 확보를 위하여 포드를 증설합니다.
 ```sh
-cd ~/environments/fisworkshop/eks/
+cd ~/environment/fisworkshop/eks/
 kubectl apply -f kubernetes/manifest/sockshop-demo-ha.yaml
 ```
 

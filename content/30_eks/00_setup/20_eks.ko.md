@@ -33,6 +33,19 @@ bash deploy.sh
 EKS 클러스터와 관련된 의존성들을 띄우는 데 약 15분 정도 소요됩니다. :coffee:
 {{% /notice %}}
 
+## kubeconfig 저장
+
+쿠버네티스 클러스터를 kubectl로 관리하기 위해서는 aws eks update-kubeconfig 명령을 실행해야 합니다. 이 명령은 실습 환경에 kubeconfig 설정 파일을 저장합니다:
+```
+Outputs:
+ClusterConfigCommand43AAE40F = aws eks update-kubeconfig --name cluster-xxxxx --role-arn arn:aws:iam::112233445566:role/yyyyy
+```
+
+AWS CDK의 출력으로 나온 명령을 실습 환경 터미널에 붙여넣기하여 실행합니다. 이 명령은 아래와 비슷한 모양을 하고 있습니다. kubeconfig 파일을 새로 생성하거나 갱신합니다:
+```sh
+aws eks update-kubeconfig --name cluster-xxxxx --role-arn arn:aws:iam::112233445566:role/yyyyy
+```
+
 ## 클러스터 확인
 
 생성한 클러스터의 노드를 확인합니다:

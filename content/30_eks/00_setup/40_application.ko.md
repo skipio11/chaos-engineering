@@ -4,26 +4,13 @@ chapter: false
 weight: 40
 ---
 
-## kubeconfig 저장
-
-쿠버네티스 클러스터를 kubectl로 관리하기 위해서는 aws eks update-kubeconfig 명령을 실행해야 합니다. 이 명령은 실습 환경에 kubeconfig 설정 파일을 저장합니다:
-```
-Outputs:
-ClusterConfigCommand43AAE40F = aws eks update-kubeconfig --name cluster-xxxxx --role-arn arn:aws:iam::112233445566:role/yyyyy
-```
-
-AWS CDK의 출력으로 나온 명령을 실습 환경 터미널에 붙여넣기하여 실행합니다. 이 명령은 아래와 비슷한 모양을 하고 있습니다. kubeconfig 파일을 새로 생성하거나 갱신합니다:
-```sh
-aws eks update-kubeconfig --name cluster-xxxxx --role-arn arn:aws:iam::112233445566:role/yyyyy
-```
-
 ## 어플리케이션 배포
 
 이 실습을 위해서, 양말가게(Sock Shop) 어플리케이션을 사용할 것입니다. 이 예제는 Weaveworks라는 곳에서 처음 개발하였으며 마이크로서비스 아키텍처 기반으로 구성되어 있습니다.
 
 다음의 명령을 이용하여 네임스페이스를 만들고 어플리케이션을 배포합니다.
 ```sh
-cd ~/environments/fisworkshop/eks/
+cd ~/environment/fisworkshop/eks/
 kubectl apply -f kubernetes/manifest/sockshop-demo.yaml
 ```
 
